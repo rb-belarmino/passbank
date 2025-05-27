@@ -60,8 +60,7 @@ public class LoginServlet extends HttpServlet {
             if (BCrypt.checkpw(passwordAttempt, loginCredentialsFromDB.getPassword())) {
                 HttpSession session = request.getSession();
                 session.setAttribute("loggedInUser", username);
-                response.sendRedirect(request.getContextPath() + "/listBankAccounts");
-            } else {
+                response.sendRedirect(request.getContextPath() + "/randomAccounts");            } else {
                 // Senha incorreta
                 request.setAttribute("error", "Usuário ou senha inválidos.");
                 request.getRequestDispatcher("/login.jsp").forward(request, response);
